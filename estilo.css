@@ -1,82 +1,84 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="estilo.css">
-    <title>SisCristóvão - Cadastro de Clientes</title>
-</head>
-<body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="clientes.html">Clientes</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="agendamentos.html">Agendamentos</a>
-        <a href="consulta_agendamentos.html">Consulta Agendamentos</a>
-    </nav>
 
-    <header class="banner">
-        <h1>Gestão de Clientes</h1>
-        <p>Cadastre os solicitantes de serviços e assistência técnica</p>
-    </header>
 
-    <div class="container">
-        <div class="card">
-            <h2>Novo Cadastro de Cliente</h2>
-            <form action="/salvar-cliente" method="POST">
-                <label for="nome">Nome do Solicitante:</label>
-                <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" required>
-                
-                <label for="cpf">CPF / CNPJ:</label>
-                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
-                
-                <label for="telefone">Telefone / Whatsapp:</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="(00) 99999-9999" required>
-                
-                <button type="submit">Salvar Cliente</button>
-            </form>
-        </div>
+button:hover {
+    background-color: #A81319; /* Vermelho um pouco mais escuro para o hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(211, 28, 36, 0.3);
+}
 
-        <div class="card" style="margin-top: 20px;">
-            <h2>Clientes Cadastrados</h2>
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px;">
-                Abaixo estão listadas as pessoas e instituições cadastradas para atendimento no laboratório.
-            </p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>CPF/CNPJ</th>
-                        <th>Telefone</th>
-                    </tr>
-                </thead>
-                <tbody id="lista-clientes">
-                    </tbody>
-            </table>
-        </div>
-    </div>
+/* ==========================================================================
+   TABELAS DE DADOS
+   ========================================================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.2rem;
+    background-color: var(--bg-white);
+}
 
-    <script>
-        fetch('/listar-clientes')
-            .then(res => res.json())
-            .then(clientes => {
-                const corpoTabela = document.getElementById('lista-clientes');
-                clientes.forEach(c => {
-                    corpoTabela.innerHTML += `
-                        <tr>
-                            <td><strong>${c.nome}</strong></td>
-                            <td>${c.cpf}</td>
-                            <td>${c.telefone}</td>
-                        </tr>`;
-                });
-            })
-            .catch(err => console.error("Erro ao listar clientes:", err));
-    </script>
-</body>
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
 
-<footer class="rodape">
-    <div class="container-rodape">
-        <p>&copy; 2026 SisCristóvão - Sistema de Controle de Serviços</p>
-        <p>Desenvolvido para fins didáticos - Alunos do São Cristóvão</p>
-    </div>
-</footer>
-</html>
+thead tr {
+    background-color: var(--primary-blue);
+    color: var(--bg-white);
+}
+
+th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #E2E8F0;
+    transition: background-color 0.2s ease;
+}
+
+/* Efeito zebra suave nas linhas da tabela */
+tbody tr:nth-of-type(even) {
+    background-color: #F8FAFC;
+}
+
+tbody tr:hover {
+    background-color: #EDF2F7;
+}
+
+/* Botão de ação menor dentro das tabelas */
+td button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    width: auto;
+    margin: 0;
+    background-color: var(--primary-blue);
+}
+
+td button:hover {
+    background-color: #0A1738;
+}
+
+/* ==========================================================================
+   RODAPÉ (FOOTER) - Estilo Dark Técnico
+   ========================================================================== */
+.rodape {
+    background-color: #1A1A1A; /* Fundo cinza escuro grafite */
+    color: #AEB0B5;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 40px;
+    width: 100%;
+    border-top: 4px solid var(--primary-blue); /* Linha azul de fechamento */
+}
+
+.container-rodape p {
+    margin: 6px 0;
+    font-size: 0.9rem;
+}
+
+.container-rodape p:first-child {
+    color: var(--bg-white);
+    font-weight: bold;
+}
