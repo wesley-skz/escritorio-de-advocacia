@@ -1,0 +1,217 @@
+/* ==========================================================================
+   PALETA DE CORES PREMIUM - ADVOCACIA INTEGRADA (PRETO & DOURADO)
+   ========================================================================== */
+:root {
+    --primary-dark: #111111;    /* Preto profundo para menus e elementos fortes */
+    --secondary-dark: #1A1A1A;  /* Grafite escuro para os cards */
+    --gold-accent: #C5A880;     /* Dourado fosco elegante (Champagne/Bronze) */
+    --gold-hover: #E5C9A3;      /* Dourado mais claro para efeitos de passagem */
+    --bg-light: #F4F4F6;        /* Cinza muito claro de fundo para contraste */
+    --text-dark: #222222;       /* Cor dos textos principais */
+    --text-light: #FFFFFF;      /* Texto branco */
+    --text-muted: #666666;      /* Texto de apoio */
+}
+
+/* ==========================================================================
+   ESTRUTURA GERAL DA PÁGINA
+   ========================================================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 2rem 1rem;
+    max-width: 950px;
+    margin: 0 auto;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGAÇÃO PÚBLICA (Com Alinhamento do Ícone à Direita)
+   ========================================================================== */
+nav {
+    background-color: var(--primary-dark);
+    padding: 0 20px;
+    height: 60px;
+    display: block; /* Mantendo compatibilidade WeasyPrint/Nativa */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border-bottom: 2px solid var(--gold-accent);
+}
+
+nav a {
+    color: #E0E0E0;
+    text-decoration: none;
+    line-height: 60px;
+    padding: 0 15px;
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--gold-accent);
+}
+
+/* Força o ícone de login a ir para a extremidade direita */
+nav .nav-login {
+    float: right;
+    font-size: 1.2rem;
+    color: var(--gold-accent) !important;
+}
+
+nav .nav-login:hover {
+    color: var(--gold-hover) !important;
+}
+
+/* ==========================================================================
+   BANNER DO SITE (Gradiente Preto e Dourado + Títulos Centralizados)
+   ========================================================================== */
+.banner {
+    background: linear-gradient(135deg, #0A0A0A 0%, #26211A 100%);
+    color: var(--text-light);
+    padding: 3.5rem 1rem;
+    text-align: center; /* Centraliza absolutamente tudo dentro do banner */
+    border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--gold-accent); /* Título principal em Dourado */
+    text-transform: uppercase;
+}
+
+.banner p {
+    margin: 10px 0 0 0;
+    font-size: 1.1rem;
+    color: #CCCCCC;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   ESTILIZAÇÃO DOS CARDS E TABELAS
+   ========================================================================== */
+.card {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-top: 3px solid var(--gold-accent); /* Detalhe dourado no topo do card */
+    margin-bottom: 25px;
+}
+
+.card h1, .card h2, .card h3 {
+    text-align: center; /* Centraliza títulos internos dos cards */
+    color: var(--primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Formulários */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-size: 0.9rem;
+}
+
+input[type="text"], input[type="tel"], input[type="number"], input[type="date"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #FAFAFA;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold-accent);
+    background-color: #FFFFFF;
+}
+
+/* Botões Funcionais Corrigidos */
+button, input[type="submit"] {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    border: 1px solid var(--gold-accent);
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: var(--gold-accent);
+    color: var(--primary-dark);
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background-color: var(--text-light);
+}
+
+th, td {
+    padding: 14px 16px;
+    text-align: left;
+}
+
+thead tr {
+    background-color: var(--primary-dark);
+    border-bottom: 2px solid var(--gold-accent);
+}
+
+th {
+    color: var(--gold-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #E5E7EB;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #F9FAFB;
+}
+
+tbody tr:hover {
+    background-color: #F3F4F6;
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+.rodape {
+    background-color: var(--primary-dark);
+    color: #999999;
+    padding: 20px 0;
+    font-size: 0.85rem;
+    text-align: center;
+    border-top: 1px solid #222222;
+    margin-top: auto;
+}
