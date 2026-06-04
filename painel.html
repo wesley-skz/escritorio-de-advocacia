@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Advocacia Integrada - Painel Interno</title>
+    <style>
+        /* Estilo complementar para os blocos de atalho do painel */
+        .grid-atalhos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .bloco-atalho {
+            background-color: #fcfbf9;
+            border: 1px solid #E5E7EB;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-dark);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid var(--gold-accent);
+        }
+        .bloco-atalho:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            background-color: #FFFFFF;
+        }
+        .bloco-atalho span {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .bloco-atalho h4 {
+            margin: 0 0 5px 0;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        .bloco-atalho p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="painel.html" style="border-bottom: 2px solid var(--gold-accent);">🏠 Painel Geral</a>
+        <a href="clientes.html">👥 Clientes</a>
+        <a href="servicos.html">⚖️ Serviços/Honorários</a>
+        <a href="agendamentos.html">📅 Novo Agendamento</a>
+        <a href="consulta_agendamentos.html">🔍 Histórico/O.S</a>
+        <a href="usuarios.html">💼 Gestão de RH</a>
+        <a href="index.html" class="nav-login" title="Sair do Sistema" style="color: #ea580c !important;">常规 🚪</a>
+    </nav>
+
+    <header class="banner">
+        <h1>Painel Administrativo</h1>
+        <p>Bem-vindo ao Sistema de Gestão Interna do Escritório</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Olá, Profissional!</h2>
+            <p>Este é o seu ambiente de trabalho protegido. Nenhuma das informações abaixo ou das abas superiores pode ser visualizada ou modificada pelo público externo sem autorização.</p>
+            <p>Utilize os atalhos rápidos abaixo ou o menu superior para gerenciar as demandas do escritório jurídico.</p>
+        </div>
+
+        <div class="grid-atalhos">
+            <a href="clientes.html" class="bloco-atalho">
+                <span>👥</span>
+                <h4>Clientes</h4>
+                <p>Gerenciar cadastros e fichas de contatos.</p>
+            </a>
+            
+            <a href="agendamentos.html" class="bloco-atalho">
+                <span>📅 Agendar</span>
+                <h4>Novo Atendimento</h4>
+                <p>Reservar horários e alocar advogados.</p>
+            </a>
+
+            <a href="consulta_agendamentos.html" class="bloco-atalho">
+                <span>🔍 Histórico</span>
+                <h4>Ordens e Prazos</h4>
+                <p>Consultar andamentos e históricos salvos.</p>
+            </a>
+
+            <a href="usuarios.html" class="bloco-atalho">
+                <span>💼 Cadastros RH</span>
+                <h4>Acessos e Logins</h4>
+                <p>Controlar usuários com autorização.</p>
+            </a>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <p>&copy; 2026 Advocacia Integrada - Sistema de Gestão Jurídica (Modo Privado)</p>
+    </footer>
+</body>
+</html>
