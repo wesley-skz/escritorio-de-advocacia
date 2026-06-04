@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Advocacia Integrada - Fórum</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="sobrenos.html">Sobre Nós</a>
+        <a href="atuacao.html">Áreas de Atuação</a>
+        <a href="contato.html">Contato</a>
+        <a href="sugestoes.html">Fórum</a>
+        <a href="login.html" class="nav-login" title="Área Restrita">👤</a>
+    </nav>
+
+    <header class="banner">
+        <h1>Fórum de Ouvidoria</h1>
+        <p>Sua opinião é fundamental para a melhoria dos nossos serviços jurídicos</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Deixe sua Crítica ou Sugestão</h2>
+            <form action="/salvar-sugestao" method="POST">
+                <label for="nome">Seu Nome (ou Anônimo):</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" required>
+                
+                <label for="tipo">Tipo de Mensagem:</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="💡 Sugestão">💡 Sugestão</option>
+                    <option value="⚠️ Crítica">⚠️ Crítica</option>
+                    <option value="⭐ Elogio">⭐ Elogio</option>
+                </select>
+                
+                <label for="mensagem">Mensagem / Texto:</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Escreva aqui detalhadamente..." rows="5" required></textarea>
+                
+                <div style="margin-top: 20px;">
+                    <input type="submit" value="Enviar ao Escritório">
+                </div>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Mural de Feedbacks Recentes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Autor</th>
+                        <th style="width: 20%;">Tipo</th>
+                        <th style="width: 55%;">Relato</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-sugestoes">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        fetch('/listar-sugestoes')
+            .then(res => res.json())
+            .then(sugestoes => {
+                const corpoTabela = document.getElementById('lista-sugestoes');
+                corpoTabela.innerHTML = "";
+                if(sugestoes.length === 0) {
+                    corpoTabela.innerHTML = `<tr><td colspan="3" style="text-align:center; color:#888;">Nenhum feedback registrado ainda.</td></tr>`;
+                    return;
+                }
+                sugestoes.forEach(s => {
+                    corpoTabela.innerHTML += `
+                        <tr>
+                            <td><strong>${s.nome}</strong></td>
+                            <td><span style="font-size:0.85rem; padding:4px 8px; border-radius:4px; background:#EEE; color:#333;">${s.tipo}</span></td>
+                            <td>${s.mensagem}</td>
+                        </tr>`;
+                });
+            })
+            .catch(err => console.error("Erro ao carregar o mural:", err));
+    </script>
+
+    <footer class="rodape">
+        <p>&copy; 2026 Advocacia Integrada - Sistema de Gestão Jurídica</p>
+    </footer>
+</body>
+</html>
