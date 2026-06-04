@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Advocacia Integrada - Acesso Restrito</title>
+    <style>
+        /* Estilização específica para centralizar o bloco de login verticalmente na tela */
+        .login-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+        .card-login {
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            background-color: var(--text-light);
+            border-radius: 6px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-top: 4px solid var(--gold-accent);
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .login-header span {
+            font-size: 3rem;
+            color: var(--gold-accent);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="sobrenos.html">Sobre Nós</a>
+        <a href="atuacao.html">Áreas de Atuação</a>
+        <a href="contato.html">Contato</a>
+        <a href="sugestoes.html">Fórum</a>
+        <a href="login.html" class="nav-login" title="Área Restrita">👤</a>
+    </nav>
+
+    <div class="container login-wrapper">
+        <div class="card-login">
+            <div class="login-header">
+                <span>👤</span>
+                <h2>Área Restrita</h2>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">Autenticação de Profissionais e Advogados</p>
+            </div>
+
+            <form action="/autenticar" method="POST">
+                <label for="usuario">Usuário ou E-mail:</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Ex: carlos.adv" required autocomplete="username">
+                
+                <label for="senha">Senha de Acesso:</label>
+                <input type="password" id="senha" name="senha" placeholder="••••••••" style="width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 4px; box-sizing: border-box; background-color: #FAFAFA;" required autocomplete="current-password">
+                
+                <div style="margin-top: 30px;">
+                    <input type="submit" value="Entrar no Sistema">
+                </div>
+            </form>
+            
+            <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 25px;">
+                Acesso monitorado. Tentativas não autorizadas serão registradas.
+            </p>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <p>&copy; 2026 Advocacia Integrada - Sistema de Gestão Jurídica</p>
+    </footer>
+</body>
+</html>
